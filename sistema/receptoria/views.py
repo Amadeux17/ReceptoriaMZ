@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def inicio(request):
-    return render(request, 'base.html')
+def login(request):
+    return render(request, 'login/login.html')
+
+#def inicio(request):
+ #   return render(request, 'base.html')
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'dashboard/dashboard.html')
 
 def cobros(request):
     return render(request, 'cobros/cobros.html')
