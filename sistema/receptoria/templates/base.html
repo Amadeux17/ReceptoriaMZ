@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="{% url 'inicio' %}">Receptoria</a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{% static 'images/avatar.png' %}"
+                alt="User Image">
+            <div>
+                <!-- Nombre del usuario logeado-->
+                <p class="app-sidebar__user-name">John Doe</p>
+                <p class="app-sidebar__user-designation">Frontend Developer</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item" href="{% url 'dashboard' %}"><i class="app-menu__icon bi bi-speedometer"></i>
+                    <spanclass="app-menu__label">Dashboard</span></a>
+            </li>
+            <li class="treeview">
+                <a class="app-menu__item" href="#" data-toggle="treeview">
+                    <i class="app-menu__icon bi bi-laptop"></i>
+                    <span class="app-menu__label">Administracion</span>
+                    <i class="treeview-indicator bi bi-chevron-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a class="treeview-item" href="{% url 'usuarios' %}"><i
+                                class="icon bi bi-circle-fill"></i>Usuarios</a>
+                    </li>
+                    <li>
+                        <a class="treeview-item" href="{% url 'roles' %}"><i
+                                class="icon bi bi-circle-fill"></i>Roles</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="app-menu__item" href="{% url 'cobros' %}">
+                    <i class="app-menu__icon bi bi-code-square"></i>
+                    <span class="app-menu__label">Cobros</span>
+                </a>
+            </li>
+
+        </ul>
+    </aside>
+    <main class="app-content">
+        {% block body %}
+        {% endblock %}
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Page specific javascripts-->
+</body>
+
+</html>
